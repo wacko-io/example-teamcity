@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -58,6 +59,11 @@ object Build : BuildType({
                 doesNotEqual("teamcity.build.branch", "master")
             }
             goals = "clean test"
+        }
+    }
+
+    triggers {
+        vcs {
         }
     }
 
